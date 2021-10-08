@@ -19,6 +19,7 @@ export const Container = styled.div`
         min-height: 200px;
 
         ${props => props.highlight ? "background: #fd951f08;" : "background: #141316;" }
+        ${props => props.over ? "background: #4cd13711;" : "" }
         
         ${props => props.isDraging ? "opacity: 0.3;" : "opacity: 1;" }
 
