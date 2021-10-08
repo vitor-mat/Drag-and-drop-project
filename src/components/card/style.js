@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
     background: #141316;
     border: 1px solid #fb951f11;
     border-radius: 4px;
@@ -18,6 +17,9 @@ export const Container = styled.div`
         padding: 16px;
         min-width: 332px;
         min-height: 200px;
+
+        ${props => props.highlight ? "background: #fd951f08;" : "background: #141316;" }
+
         #cards{
             box-shadow: 0 2px 2px -1px #fd951fcc;
             widht: 250px;
