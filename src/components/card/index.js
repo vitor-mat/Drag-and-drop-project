@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 
 import {
     Container
-    } from './style'
+} from './style'
 
-export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
+import { DragDropContext } from 'react-beautiful-dnd'
+
+export const Card = ({ title, status, dragStart, dragEnd, highlight }) => {
 
     let [isDraging, setIsDraging] = useState(false);
     let [over, setOver] = useState(false);
 
-    const drag = () => {}
+    const drag = () => { }
 
 
     /*Funções do dragzone*/
-    const dragEnter = () => {}
+    const dragEnter = () => { }
 
     const dragOver = () => {
         setOver(over = true)
@@ -23,38 +25,40 @@ export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
         setOver(over = false)
     }
 
-    const drop = () => {}
+    const drop = () => { }
 
 
-    return(
+    return (
         <Container
-        status={status}
-        highlight={highlight}
-        isDraging={isDraging}
-        over={over}
+            status={status}
+            highlight={highlight}
+            isDraging={isDraging}
+            over={over}
         >
             <div id="title-container"><h3>{title}</h3></div>
             <div id="dropzone-container"
-                onDragEnter = {dragEnter}
-                onDragOver = {() => dragOver()}
-                onDragLeave = {() => dragLeave()}
-                onDrop =  {drop}
+                onDragEnter={dragEnter}
+                onDragOver={() => dragOver()}
+                onDragLeave={() => dragLeave()}
+                onDrop={drop}
             >
-                <div id="cards" draggable="true"
-                    onDragStart={() => {
-                        dragStart()
-                        setIsDraging(isDraging = true)
-                    }}
-                    onDrag={() => drag}
-                    onDragEnd={() => {
-                        dragEnd()
-                        setIsDraging(isDraging = false)
+                <DragDropContext>
+                    <div id="cards" draggable="true"
+                        onDragStart={() => {
+                            dragStart()
+                            setIsDraging(isDraging = true)
+                        }}
+                        onDrag={() => drag}
+                        onDragEnd={() => {
+                            dragEnd()
+                            setIsDraging(isDraging = false)
 
-                    }}
-                >
-                    <div id="status"></div>
-                    Eu sou um card
-                </div>
+                        }}
+                    >
+                        <div id="status"></div>
+                        Eu sou um card
+                    </div>
+                </DragDropContext>
             </div>
         </Container>
     )
