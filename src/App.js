@@ -1,8 +1,15 @@
 import React from 'react';
 
+import { KanbanPage } from './pages/kanban/index'
+
+import { GlobalStyle } from './style/globalStyle'
+
 const App = () => {
   return(
-    <p>Ola mundo</p>
+    <>
+      <GlobalStyle />
+      <KanbanPage />
+    </>
   )
 }
 
