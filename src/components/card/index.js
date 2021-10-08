@@ -4,14 +4,16 @@ import {
     Container
     } from './style'
 
-export const Card = ({title, description}) => {
+export const Card = ({title, status}) => {
     return(
-        <Container>
+        <Container status={status}>
             <div id="title-container"><h3>{title}</h3></div>
             <div id="dropzone-container">
-                <div id="cards" draggable="true">Eu sou um card</div>
+                <div id="cards" draggable="true">
+                    <div id="status"></div>
+                    Eu sou um card
+                </div>
             </div>
-            <div>{description}</div>
         </Container>
     )
 }
