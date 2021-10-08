@@ -19,6 +19,10 @@ export const Container = styled.div`
         min-height: 200px;
 
         ${props => props.highlight ? "background: #fd951f08;" : "background: #141316;" }
+        
+        ${props => props.isDraging ? "opacity: 0.3;" : "opacity: 1;" }
+
+        transition: 400ms;
 
         #cards{
             box-shadow: 0 2px 2px -1px #fd951fcc;

@@ -6,7 +6,7 @@ import {
 
 export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
 
-
+    let [isDraging, setIsDraging] = useState(false);
 
     const drag = () => {}
 
@@ -22,7 +22,7 @@ export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
 
 
     return(
-        <Container status={status} highlight={highlight}>
+        <Container status={status} highlight={highlight} isDraging={isDraging}>
             <div id="title-container"><h3>{title}</h3></div>
             <div id="dropzone-container"
                 onDragEnter = {dragEnter}
@@ -31,9 +31,16 @@ export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
                 onDrop =  {drop}
             >
                 <div id="cards" draggable="true"
-                    onDragStart={() => dragStart()}
+                    onDragStart={() => {
+                        dragStart()
+                        setIsDraging(isDraging = true)
+                    }}
                     onDrag={() => drag}
-                    onDragEnd={() => dragEnd()}
+                    onDragEnd={() => {
+                        dragEnd()
+                        setIsDraging(isDraging = false)
+
+                    }}
                 >
                     <div id="status"></div>
                     Eu sou um card

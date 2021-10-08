@@ -20,7 +20,7 @@ export const KanbanPage = () => {
     }
 
     return (
-        <Container>
+        <Container highlight={highlight}>
             <Card
                 title="Todo"
                 description="Next Level Week"
