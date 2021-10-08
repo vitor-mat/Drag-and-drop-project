@@ -4,7 +4,7 @@ import { Card } from '../../components/card/index'
 
 import {
     Container
-    } from './style';
+} from './style';
 
 export const KanbanPage = () => {
 
@@ -15,11 +15,35 @@ export const KanbanPage = () => {
         setHighlight(highlight = true)
     }
 
-    return(
+    const dragEnd = () => {
+        setHighlight(highlight = false)
+    }
+
+    return (
         <Container>
-            <Card title="Todo" description="Next Level Week" status="urgent" highlight={highlight} dragStart={dragStart}/>
-            <Card title="In Progress" description="Next Level Week" status="alert" highlight={highlight} dragStart={dragStart}/>
-            <Card title="Done" description="Next Level Week" highlight={highlight} dragStart={dragStart}/>
+            <Card
+                title="Todo"
+                description="Next Level Week"
+                status="urgent"
+                highlight={highlight}
+                dragStart={dragStart}
+                dragEnd={dragEnd}
+            />
+            <Card
+                title="In Progress"
+                description="Next Level Week"
+                status="alert"
+                highlight={highlight}
+                dragStart={dragStart}
+                dragEnd={dragEnd}
+            />
+            <Card
+                title="Done"
+                description="Next Level Week"
+                highlight={highlight}
+                dragStart={dragStart}
+                dragEnd={dragEnd}
+            />
         </Container>
     )
 }

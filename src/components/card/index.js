@@ -4,13 +4,11 @@ import {
     Container
     } from './style'
 
-export const Card = ({title, status, dragStart, highlight}) => {
+export const Card = ({title, status, dragStart, dragEnd, highlight}) => {
 
 
 
     const drag = () => {}
-
-    const dragEnd = () => {}
 
 
     /*Funções do dragzone*/
@@ -35,7 +33,7 @@ export const Card = ({title, status, dragStart, highlight}) => {
                 <div id="cards" draggable="true"
                     onDragStart={() => dragStart()}
                     onDrag={() => drag}
-                    onDragEnd={() => dragEnd}
+                    onDragEnd={() => dragEnd()}
                 >
                     <div id="status"></div>
                     Eu sou um card
