@@ -10,32 +10,36 @@ import {
     Draggable
 } from 'react-beautiful-dnd'
 
+const items = [
+    {
+        name: "card 1"
+    },
+    {
+        name: "card 2"
+    }
+]
+
 export const Card = ({ title, status, dragStart, dragEnd, highlight }) => {
 
     let [isDraging, setIsDraging] = useState(false);
     let [over, setOver] = useState(false);
 
-    const drag = () => { }
+    let [cardListData, setCardListData] = useState(items)
 
+    function handleOnDragEnd(result) {
+        if (!result.destination) return;
+        
+        const itemsCopy = Array.from(cardListData);
+        const [reorderedItem] = itemsCopy.splice(result.source.index, 1);
+        itemsCopy.splice(result.destination.index, 0, reorderedItem);
 
-    /*Funções do dragzone*/
-    const dragEnter = () => { }
-
-    const dragOver = () => {
-        setOver(over = true)
+        setCardListData(itemsCopy);
     }
-
-    const dragLeave = () => {
-        setOver(over = false)
-    }
-
-    const drop = () => { }
-
 
     return (
         <Container>
             <div id="title-container"><h3>{title}</h3></div>
-            <DragDropContext>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable
                     droppableId="card-coontainer"
                 >
@@ -46,40 +50,29 @@ export const Card = ({ title, status, dragStart, dragEnd, highlight }) => {
                                 {...provided.droppableProps}
                                 ref={provided.innerRef}
                             >
-                                <Draggable draggableId="card-item-0" index={0}>
-                                    {(provided) => {
+                                {
+                                    cardListData.map((value, index) => {
                                         return (
-                                            <div
-                                                id="cards"
+                                            <Draggable draggableId={`card-item-${index}`} index={index}>
+                                                {(provided) => {
+                                                    return (
+                                                        <div
+                                                            id="cards"
 
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                            >
-                                                <div id="status"></div>
-                                                    Eu sou um card1
-                                            </div>
+                                                            ref={provided.innerRef}
+                                                            {...provided.draggableProps}
+                                                            {...provided.dragHandleProps}
+                                                        >
+                                                            <div id="status"></div>
+                                                            {value.name}
+                                                        </div>
 
+                                                    )
+                                                }}
+                                            </Draggable>
                                         )
-                                    }}
-                                </Draggable>
-                                <Draggable draggableId="card-item-1" index={1}>
-                                    {(provided) => {
-                                        return (
-                                            <div
-                                                id="cards"
-
-                                                ref={provided.innerRef}
-                                                {...provided.draggableProps}
-                                                {...provided.dragHandleProps}
-                                            >
-                                                <div id="status"></div>
-                                                    Eu sou um card2
-                                            </div>
-
-                                        )
-                                    }}
-                                </Draggable>
+                                    })
+                                }
                                 {provided.placeholder}
                             </div>
                         )
