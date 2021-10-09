@@ -4,7 +4,11 @@ import {
     Container
 } from './style'
 
-import { DragDropContext } from 'react-beautiful-dnd'
+import {
+    DragDropContext,
+    Droppable,
+    Draggable
+} from 'react-beautiful-dnd'
 
 export const Card = ({ title, status, dragStart, dragEnd, highlight }) => {
 
@@ -29,37 +33,59 @@ export const Card = ({ title, status, dragStart, dragEnd, highlight }) => {
 
 
     return (
-        <Container
-            status={status}
-            highlight={highlight}
-            isDraging={isDraging}
-            over={over}
-        >
+        <Container>
             <div id="title-container"><h3>{title}</h3></div>
-            <div id="dropzone-container"
-                onDragEnter={dragEnter}
-                onDragOver={() => dragOver()}
-                onDragLeave={() => dragLeave()}
-                onDrop={drop}
-            >
-                <DragDropContext>
-                    <div id="cards" draggable="true"
-                        onDragStart={() => {
-                            dragStart()
-                            setIsDraging(isDraging = true)
-                        }}
-                        onDrag={() => drag}
-                        onDragEnd={() => {
-                            dragEnd()
-                            setIsDraging(isDraging = false)
+            <DragDropContext>
+                <Droppable
+                    droppableId="card-coontainer"
+                >
+                    {(provided) => {
+                        return (
+                            <div
+                                id="dropzone-container"
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                            >
+                                <Draggable draggableId="card-item-0" index={0}>
+                                    {(provided) => {
+                                        return (
+                                            <div
+                                                id="cards"
 
-                        }}
-                    >
-                        <div id="status"></div>
-                        Eu sou um card
-                    </div>
-                </DragDropContext>
-            </div>
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                            >
+                                                <div id="status"></div>
+                                                    Eu sou um card1
+                                            </div>
+
+                                        )
+                                    }}
+                                </Draggable>
+                                <Draggable draggableId="card-item-1" index={1}>
+                                    {(provided) => {
+                                        return (
+                                            <div
+                                                id="cards"
+
+                                                ref={provided.innerRef}
+                                                {...provided.draggableProps}
+                                                {...provided.dragHandleProps}
+                                            >
+                                                <div id="status"></div>
+                                                    Eu sou um card2
+                                            </div>
+
+                                        )
+                                    }}
+                                </Draggable>
+                                {provided.placeholder}
+                            </div>
+                        )
+                    }}
+                </Droppable>
+            </DragDropContext>
         </Container>
     )
 }
