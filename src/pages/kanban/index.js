@@ -1,49 +1,57 @@
 import React, { useState } from 'react';
 
-import { Card } from '../../components/card/index'
+import { Board } from '../../components/card/index'
+
+import {
+    DragDropContext
+} from 'react-beautiful-dnd';
 
 import {
     Container
 } from './style';
 
+const items = [
+    {
+        name: "card 1"
+    },
+    {
+        name: "card 2"
+    }
+]
+
 export const KanbanPage = () => {
 
-    let [highlight, setHighlight] = useState(false);
 
-    /*Funções dos cards */
-    const dragStart = () => {
-        setHighlight(highlight = true)
-    }
+    let [cardListData, setCardListData] = useState(items)
 
-    const dragEnd = () => {
-        setHighlight(highlight = false)
+    function handleOnDragEnd(result) {
+        if (!result.destination) return;
+    
+        const itemsCopy = Array.from(cardListData);
+        const [reorderedItem] = itemsCopy.splice(result.source.index, 1);
+        itemsCopy.splice(result.destination.index, 0, reorderedItem);
+    
+        setCardListData(itemsCopy);
     }
 
     return (
-        <Container highlight={highlight}>
-            <Card
-                title="Todo"
-                description="Next Level Week"
-                status="urgent"
-                highlight={highlight}
-                dragStart={dragStart}
-                dragEnd={dragEnd}
-            />
-            <Card
-                title="In Progress"
-                description="Next Level Week"
-                status="alert"
-                highlight={highlight}
-                dragStart={dragStart}
-                dragEnd={dragEnd}
-            />
-            <Card
-                title="Done"
-                description="Next Level Week"
-                highlight={highlight}
-                dragStart={dragStart}
-                dragEnd={dragEnd}
-            />
+        <Container>
+            <DragDropContext>
+                <Board
+                    title="Todo"
+                    description="Next Level Week"
+                    status="urgent"
+                />
+                <Board
+                    title="In Progress"
+                    description="Next Level Week"
+                    status="alert"
+                />
+                <Board
+                    title="Done"
+                    description="Next Level Week"
+                />
+            </DragDropContext>
         </Container>
     )
 }
