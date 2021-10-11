@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-import { Board } from '../../components/card/index'
+import { Board } from '../../components/board/index'
+import { Card } from '../../components/card/index';
+
 
 import {
     DragDropContext
@@ -9,6 +11,7 @@ import {
 import {
     Container
 } from './style';
+
 
 const items = [
     {
@@ -41,16 +44,23 @@ export const KanbanPage = () => {
                     title="Todo"
                     description="Next Level Week"
                     status="urgent"
-                />
+                >
+                    <Card />
+                </Board>
                 <Board
                     title="In Progress"
                     description="Next Level Week"
                     status="alert"
-                />
+                >
+
+
+                </Board>
                 <Board
                     title="Done"
                     description="Next Level Week"
-                />
+                >
+
+                </Board>
             </DragDropContext>
         </Container>
     )
