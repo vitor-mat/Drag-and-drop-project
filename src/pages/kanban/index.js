@@ -22,12 +22,12 @@ const dataKanban = [
         items: [{
             name: "correr na orla",
             status: "eventual",
-            id: (Math.random()*1000000000).toString()
+            id: (Math.random() * 1000000000).toString()
         },
         {
             name: "ler um livro",
             status: "alert",
-            id: (Math.random()*1000000000).toString()
+            id: (Math.random() * 1000000000).toString()
         }]
     },
     {
@@ -49,30 +49,35 @@ export const KanbanPage = () => {
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
-        
 
-        const { source, destination} = result;
+        console.log(result)
+
+
+        const { source, destination } = result;
+
+        if (source.droppableId != destination.droppableId) {
+            alert("ops é uma nova coluna")
+        }
+
 
         const itemsCopy = Array.from(cardListData);
 
         const [reorderedItem] = itemsCopy[source.droppableId].items.splice(source.index, 1);
         itemsCopy[source.droppableId].items.splice(destination.index, 0, reorderedItem);
 
-        console.log(itemsCopy)
-
         setCardListData(itemsCopy);
     }
 
     return (
         <Container>
-            {
-                cardListData.map((data, index) => {
-                    return (
-                        <Board
-                            title={data.title}
-                            key={data.id}
-                        >
-                            <DragDropContext onDragEnd={handleOnDragEnd}>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+                {
+                    cardListData.map((data, index) => {
+                        return (
+                            <Board
+                                title={data.title}
+                                key={data.id}
+                            >
                                 <Droppable
                                     droppableId={data.id}
                                 >
@@ -82,6 +87,9 @@ export const KanbanPage = () => {
                                                 id="dropzone-container"
                                                 {...provided.droppableProps}
                                                 ref={provided.innerRef}
+                                                style={{
+                                                    background: snapshot.isDraggingOver ? 'rgba(10, 255, 180, .1)' : ""
+                                                }}
                                             >
                                                 {
                                                     data.items.map((value, index) => {
@@ -112,11 +120,11 @@ export const KanbanPage = () => {
                                         )
                                     }}
                                 </Droppable>
-                            </DragDropContext>
-                        </Board>
-                    )
-                })
-            }
+                            </Board>
+                        )
+                    })
+                }
+            </DragDropContext>
         </Container>
     )
 }
