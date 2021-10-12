@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Container } from './style';
 
-export const Card = () => {
+export const Card = ({ title }) => {
     return (
         <Container>
             <div id="status"></div>
-            Eu sou um card
+            {title}
         </Container>
     )
 }

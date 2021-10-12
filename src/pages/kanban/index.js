@@ -5,7 +5,9 @@ import { Card } from '../../components/card/index';
 
 
 import {
-    DragDropContext
+    DragDropContext,
+    Droppable,
+    Draggable
 } from 'react-beautiful-dnd';
 
 import {
@@ -29,39 +31,61 @@ export const KanbanPage = () => {
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
-    
+
         const itemsCopy = Array.from(cardListData);
         const [reorderedItem] = itemsCopy.splice(result.source.index, 1);
         itemsCopy.splice(result.destination.index, 0, reorderedItem);
-    
+
         setCardListData(itemsCopy);
     }
 
     return (
         <Container>
-            <DragDropContext>
-                <Board
-                    title="Todo"
-                    description="Next Level Week"
-                    status="urgent"
-                >
-                    <Card />
-                </Board>
-                <Board
-                    title="In Progress"
-                    description="Next Level Week"
-                    status="alert"
-                >
+            <Board
+                title="In Progress"
+            >
+                <DragDropContext>
+                    <Droppable
+                        droppableId="card-coontainer"
+                    >
+                        {(provided, snapshot) => {
+                            return (
+                                <div
+                                    id="dropzone-container"
+                                    {...provided.droppableProps}
+                                    ref={provided.innerRef}
+                                >
+                                    {
+                                        cardListData.map((value, index) => {
+                                            return (
+                                                <Draggable key={`key${index}`} draggableId={`card-item-${index}`} index={index} >
+                                                    {
+                                                        (provided) => {
+                                                            return (
+                                                                <span
+                                                                    ref={provided.innerRef}
+                                                                    {...provided.draggableProps}
+                                                                    {...provided.dragHandleProps}
+                                                                >
+                                                                    <Card
+                                                                        title={value.name}
+                                                                    />
+                                                                </span>
+                                                            )
+                                                        }
+                                                    }
+                                                </Draggable>
+                                            )
+                                        })
+                                    }
+                                    {provided.placeholder}
+                                </div>
+                            )
+                        }}
+                    </Droppable>
+                </DragDropContext>
+            </Board>
 
-
-                </Board>
-                <Board
-                    title="Done"
-                    description="Next Level Week"
-                >
-
-                </Board>
-            </DragDropContext>
         </Container>
     )
 }
