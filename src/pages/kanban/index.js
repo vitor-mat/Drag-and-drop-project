@@ -44,7 +44,7 @@ export const KanbanPage = () => {
             <Board
                 title="In Progress"
             >
-                <DragDropContext>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
                     <Droppable
                         droppableId="card-coontainer"
                     >

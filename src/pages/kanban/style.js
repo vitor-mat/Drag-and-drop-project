@@ -16,6 +16,15 @@ export const Container = styled.div`
         background: #141316;
 
         transition: 400ms;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    span{
+        widht: 250px;
+        overflow: visible;
     }
 
 `
