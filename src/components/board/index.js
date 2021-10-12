@@ -4,11 +4,6 @@ import {
     Container
 } from './style'
 
-import {
-    Droppable,
-    Draggable
-} from 'react-beautiful-dnd'
-
 const cardListData = [
     {
         name: "card 1"

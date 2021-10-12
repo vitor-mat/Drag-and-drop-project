@@ -17,17 +17,26 @@ import {
 
 const dataKanban = [
     {
+        id: "0",
         title: "Todo",
         items: [{
             name: "correr na orla",
-            status: "eventual"
+            status: "eventual",
+            id: (Math.random()*1000000000).toString()
+        },
+        {
+            name: "ler um livro",
+            status: "alert",
+            id: (Math.random()*1000000000).toString()
         }]
     },
     {
-        title: "In Progress",
+        id: "1",
+        title: "In-Progress",
         items: []
     },
     {
+        id: "2",
         title: "Completed",
         items: []
     }
@@ -40,10 +49,16 @@ export const KanbanPage = () => {
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
+        
+
+        const { source, destination} = result;
 
         const itemsCopy = Array.from(cardListData);
-        const [reorderedItem] = itemsCopy.splice(result.source.index, 1);
-        itemsCopy.splice(result.destination.index, 0, reorderedItem);
+
+        const [reorderedItem] = itemsCopy[source.droppableId].items.splice(source.index, 1);
+        itemsCopy[source.droppableId].items.splice(destination.index, 0, reorderedItem);
+
+        console.log(itemsCopy)
 
         setCardListData(itemsCopy);
     }
@@ -55,10 +70,11 @@ export const KanbanPage = () => {
                     return (
                         <Board
                             title={data.title}
+                            key={data.id}
                         >
                             <DragDropContext onDragEnd={handleOnDragEnd}>
                                 <Droppable
-                                    droppableId="card-container"
+                                    droppableId={data.id}
                                 >
                                     {(provided, snapshot) => {
                                         return (
@@ -70,7 +86,7 @@ export const KanbanPage = () => {
                                                 {
                                                     data.items.map((value, index) => {
                                                         return (
-                                                            <Draggable key={`key${index}`} draggableId={`card-item-${index}`} index={index} >
+                                                            <Draggable key={`key${index}`} draggableId={index.toString()} index={index} >
                                                                 {
                                                                     (provided) => {
                                                                         return (
