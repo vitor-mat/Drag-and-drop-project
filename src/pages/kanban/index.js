@@ -50,17 +50,22 @@ export const KanbanPage = () => {
     function handleOnDragEnd(result) {
         if (!result.destination) return;
 
-        console.log(result)
-
-
         const { source, destination } = result;
 
-        if (source.droppableId != destination.droppableId) {
-            alert("ops é uma nova coluna")
-        }
-
-
         const itemsCopy = Array.from(cardListData);
+
+        if (source.droppableId != destination.droppableId) {
+           
+            const [reorderedItem] = itemsCopy[source.droppableId].items.splice(source.index, 1);
+
+            itemsCopy[destination.droppableId].items.splice(destination.index, 0, reorderedItem);
+           
+            console.log(itemsCopy)
+
+            setCardListData(itemsCopy);
+
+            return;
+        }
 
         const [reorderedItem] = itemsCopy[source.droppableId].items.splice(source.index, 1);
         itemsCopy[source.droppableId].items.splice(destination.index, 0, reorderedItem);
@@ -94,7 +99,7 @@ export const KanbanPage = () => {
                                                 {
                                                     data.items.map((value, index) => {
                                                         return (
-                                                            <Draggable key={`key${index}`} draggableId={index.toString()} index={index} >
+                                                            <Draggable key={`key${index}`} draggableId={value.id.toString()} index={index} >
                                                                 {
                                                                     (provided) => {
                                                                         return (
