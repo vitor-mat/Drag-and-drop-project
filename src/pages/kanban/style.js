@@ -83,6 +83,7 @@ export const Container = styled.div`
         gap: 50px;
         padding-top: 20px;
         overflow: auto;
+        margin-bottom: 30px;
     }
 
     .dropzone-container{
@@ -100,6 +101,20 @@ export const Container = styled.div`
     span{
         widht: 100%;
         padding: 0 10px;
+    }
+
+    footer{
+        height: 70px;
+        width: 100%;
+        background: ${backgroundColor};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span{
+            color: ${highlightColor};
+            font-size: 18px;
+        }
     }
 
 `

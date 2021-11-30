@@ -124,7 +124,7 @@ export const KanbanPage = () => {
                 </div>
             </header>
             <main>
-                <DragDropContext onDragEnd={handleOnDragEnd}>
+                <DragDropContext onDragEnd={handleOnDragEnd} id="drag-context">
                     {
                         cardListData.map((data, index) => {
                             return (
@@ -183,6 +183,9 @@ export const KanbanPage = () => {
                     }
                 </DragDropContext>
             </main>
+            <footer>
+                <span>Make by Vitor M.</span>
+            </footer>
         </Container>
     )
 }
