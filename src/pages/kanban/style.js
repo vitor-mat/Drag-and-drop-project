@@ -114,6 +114,7 @@ export const Container = styled.div`
         grid-template-column: 5px / 1fr / 5px;
         grid-template-row: 1fr;
         justify-content: center;
+        margin-bottom: 5px;
 
         #test{
             grid-area: all;
@@ -128,6 +129,19 @@ export const Container = styled.div`
                 padding: 0 10px;
             }
         }
+
+        #test::-webkit-scrollbar {
+            width: 2px;
+          }
+          
+          #test::-webkit-scrollbar-track {
+            background: rgba(20, 19, 22, .4);
+          }
+          
+          #test::-webkit-scrollbar-thumb {
+            background: rgba(20, 19, 22, .7);
+            border-radius: 20px;
+          }
     }
 
     footer{
