@@ -56,80 +56,85 @@ export const KanbanPage = () => {
 
         if (source.droppableId === destination.droppableId && source.index === destination.index) return;
 
-        if (source.droppableId === destination.droppableId && source.index !== destination.index){
+        if (source.droppableId === destination.droppableId && source.index !== destination.index) {
             add = itemsCopy[source.droppableId].items.splice(source.index, 1)
-            console.log(add)
             itemsCopy[source.droppableId].items.splice(destination.index, 0, add[0])
         }
 
-        if(source.droppableId !== destination.droppableId){
+        if (source.droppableId !== destination.droppableId) {
             add = itemsCopy[source.droppableId].items.splice(source.index, 1)
             itemsCopy[destination.droppableId].items.splice(destination.index, 0, add[0])
         }
-        console.log(destination.droppableId)
         setCardListData(itemsCopy)
-        
+
     }
 
     return (
         <Container>
-            <DragDropContext onDragEnd={handleOnDragEnd}>
-                {
-                    cardListData.map((data, index) => {
-                        console.log('mudou')
-                        return (
-                            <Board
-                                title={data.title}
-                                key={index}
-                            >
-                                <Droppable
-                                    droppableId={data.id}
+            <header>
+                <h1>Kanban Board</h1>
+                <div id="add-div">
+                    <input type="text"/>
+                    <button>Adicionar</button>
+                </div>
+            </header>
+            <main>
+                <DragDropContext onDragEnd={handleOnDragEnd}>
+                    {
+                        cardListData.map((data, index) => {
+                            return (
+                                <Board
+                                    title={data.title}
+                                    key={index}
                                 >
-                                    {(provided, snapshot) => {
-                                        return (
-                                            <div
-                                                ref={provided.innerRef}
-                                                {...provided.droppableProps}
-                                                className="dropzone-container"
-                                                style={{
-                                                    background: snapshot.isDraggingOver ? 'rgba(10, 255, 180, .1)' : ""
-                                                }}
-                                            >
-                                                {
-                                                    data.items.map((value, index) => {
-                                                        console.log(value.id)
-                                                        return (
-                                                            <Draggable key={`key${value.id}`} draggableId={value.id} index={index} >
-                                                                {
-                                                                    (provided) => {
-                                                                        return (
-                                                                            <span
-                                                                                ref={provided.innerRef}
-                                                                                {...provided.draggableProps}
-                                                                                {...provided.dragHandleProps}
-                                                                            >
-                                                                                <Card
-                                                                                    title={value.name}
-                                                                                    status={value.status}
-                                                                                />
-                                                                            </span>
-                                                                        )
+                                    <Droppable
+                                        droppableId={data.id}
+                                    >
+                                        {(provided, snapshot) => {
+                                            return (
+                                                <div
+                                                    ref={provided.innerRef}
+                                                    {...provided.droppableProps}
+                                                    className="dropzone-container"
+                                                    style={{
+                                                        background: snapshot.isDraggingOver ? 'rgba(10, 255, 180, .1)' : ""
+                                                    }}
+                                                >
+                                                    {
+                                                        data.items.map((value, index) => {
+                                                            return (
+                                                                <Draggable key={`key${value.id}`} draggableId={value.id} index={index} >
+                                                                    {
+                                                                        (provided) => {
+                                                                            return (
+                                                                                <span
+                                                                                    ref={provided.innerRef}
+                                                                                    {...provided.draggableProps}
+                                                                                    {...provided.dragHandleProps}
+                                                                                >
+                                                                                    <Card
+                                                                                        title={value.name}
+                                                                                        status={value.status}
+                                                                                    />
+                                                                                </span>
+                                                                            )
+                                                                        }
                                                                     }
-                                                                }
-                                                            </Draggable>
-                                                        )
-                                                    })
-                                                }
-                                                {provided.placeholder}
-                                            </div>
-                                        )
-                                    }}
-                                </Droppable>
-                            </Board>
-                        )
-                    })
-                }
-            </DragDropContext>
+                                                                </Draggable>
+                                                            )
+                                                        })
+                                                    }
+                                                    {provided.placeholder}
+                                                </div>
+                                            )
+                                        }}
+                                    </Droppable>
+                                </Board>
+                            )
+                        })
+                    }
+                </DragDropContext>
+            </main>
         </Container>
     )
 }
