@@ -14,20 +14,11 @@ import {
     Container
 } from './style';
 
-const dataKanban = [
+const dataKanban = JSON.parse(localStorage.getItem("dataKanban3354676199304804")) || [
     {
         id: "0",
         title: "Todo",
-        items: [{
-            name: "1",
-            status: "eventual",
-            id: "4865165256"
-        },
-        {
-            name: "2",
-            status: "alert",
-            id: "64984516"
-        }]
+        items: []
     },
     {
         id: "1",
@@ -71,8 +62,8 @@ export const KanbanPage = () => {
     }
 
     const addNewItem = (e) => {
-        
-        if(!inputAddValue){
+
+        if (!inputAddValue) {
             alert("Error: Campo de entrada vazio!")
             return;
         }
@@ -82,7 +73,7 @@ export const KanbanPage = () => {
         newArray[0].items.push({
             name: inputAddValue,
             status: "eventual",
-            id: ((Math.random()*1000000).toFixed(2)).toString()
+            id: ((Math.random() * 1000000).toFixed(2)).toString()
         })
         setCardListData(cardListData = newArray)
         setInputAddValue(inputAddValue = "")
@@ -98,10 +89,10 @@ export const KanbanPage = () => {
                 <h1>Kanban Board</h1>
                 <div id="add-div">
                     <input type="text" onChange={e => inputAddHandle(e)} value={inputAddValue} onKeyPress={e => {
-                        if(e.key === "Enter"){
+                        if (e.key === "Enter") {
                             addNewItem()
                         }
-                    }}/>
+                    }} />
                     <button onClick={addNewItem}>Adicionar</button>
                 </div>
             </header>
