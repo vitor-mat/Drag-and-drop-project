@@ -85,6 +85,25 @@ export const KanbanPage = () => {
         setInputAddValue(inputAddValue = e.target.value)
     }
 
+    const deleteItemFunction = async (id, column) => {
+
+
+        let newArray = cardListData       
+
+        const newArrayItems = cardListData[column].items.filter((value, index) => {
+            if(value.id === id){
+                return false;
+            }
+
+            return true;
+        })
+
+        newArray[column].items = newArrayItems
+
+        await setCardListData(newArray)
+        localStorage.setItem("dataKanban3354676199304804", JSON.stringify(cardListData))
+    }
+
     return (
         <Container>
             <header>
@@ -141,6 +160,9 @@ export const KanbanPage = () => {
                                                                                     <Card
                                                                                         title={value.name}
                                                                                         status={value.status}
+                                                                                        deleteItemFunction={deleteItemFunction}
+                                                                                        id={value.id}
+                                                                                        column={data.id}
                                                                                     />
                                                                                 </span>
                                                                             )
