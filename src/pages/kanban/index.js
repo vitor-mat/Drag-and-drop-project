@@ -44,6 +44,7 @@ const dataKanban = [
 export const KanbanPage = () => {
 
     let [cardListData, setCardListData] = useState(dataKanban)
+    let [inputAddValue, setInputAddValue] = useState()
 
     function handleOnDragEnd(result) {
 
@@ -69,13 +70,30 @@ export const KanbanPage = () => {
 
     }
 
+    const addNewItem = (e) => {
+        
+        let newArray = cardListData
+
+        newArray[0].items.push({
+            name: inputAddValue,
+            status: "eventual",
+            id: ((Math.random()*1000000).toFixed(2)).toString()
+        })
+        setCardListData(cardListData = newArray)
+        console.log(cardListData)
+    }
+
+    const inputAddHandle = (e) => {
+        setInputAddValue(inputAddValue = e.target.value)
+    }
+
     return (
         <Container>
             <header>
                 <h1>Kanban Board</h1>
                 <div id="add-div">
-                    <input type="text"/>
-                    <button>Adicionar</button>
+                    <input type="text" onChange={e => inputAddHandle(e)}/>
+                    <button onClick={e => addNewItem(e)}>Adicionar</button>
                 </div>
             </header>
             <main>
