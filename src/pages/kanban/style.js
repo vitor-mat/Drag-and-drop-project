@@ -108,7 +108,6 @@ export const Container = styled.div`
         width: 100%;
         flex: 1;
 
-        background: blue;
 
         display: grid;
         grid-template-areas: "all";
@@ -123,7 +122,6 @@ export const Container = styled.div`
             width: 100%;
             flex: 1;
             overflow: auto;
-            background: red;
 
             span{
                 widht: 100%;
