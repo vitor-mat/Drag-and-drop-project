@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
     Container
 } from './style'
-
-const cardListData = [
-    {
-        name: "card 1"
-    },
-    {
-        name: "card 2"
-    }
-]
 
 export const Board = ({ title, children }) => {
 

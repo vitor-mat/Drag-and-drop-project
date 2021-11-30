@@ -14,9 +14,9 @@ export const Container = styled.div`
         height: 8px;
         margin-bottom: 16px;
         ${(prop) => {
-            if(prop.status == "urgent"){
+            if(prop.status === "urgent"){
                 return "background: red;"
-            }else if(prop.status == "alert"){
+            }else if(prop.status === "alert"){
                 return "background: yellow;"
             }else{
                 return "background: green;"

@@ -9,7 +9,7 @@ export const Container = styled.div`
     padding: 50px;
     gap: 50px;
 
-    #dropzone-container{
+    .dropzone-container{
         padding: 16px;
         min-width: 332px;
         min-height: 200px;
