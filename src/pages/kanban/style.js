@@ -53,6 +53,10 @@ export const Container = styled.div`
                 font-size: 18px;
             }
 
+            input::placeholder{
+                font-weight: 300;
+            }
+
             button{
                 background: ${highlightColor};
                 color: ${backgroundColor};

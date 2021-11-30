@@ -90,11 +90,17 @@ export const KanbanPage = () => {
             <header>
                 <h1>Kanban Board</h1>
                 <div id="add-div">
-                    <input type="text" onChange={e => inputAddHandle(e)} value={inputAddValue} onKeyPress={e => {
+                    <input
+                    type="text"
+                    onChange={e => inputAddHandle(e)}
+                    value={inputAddValue}
+                    onKeyPress={e => {
                         if (e.key === "Enter") {
                             addNewItem()
                         }
-                    }} />
+                    }}
+                    placeholder="Digite Aqui"
+                    />
                     <button onClick={addNewItem}>Adicionar</button>
                 </div>
             </header>
