@@ -9,19 +9,32 @@ export const Container = styled.div`
     font-size: 18px;
     padding: 16px;
 
-    #status{
-        width: 30px;
-        height: 8px;
+    #status-div{
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 16px;
-        ${(prop) => {
-            if(prop.status === "urgent"){
-                return "background: red;"
-            }else if(prop.status === "alert"){
-                return "background: yellow;"
-            }else{
-                return "background: green;"
-            }
-        }}
+
+        #status{
+            width: 30px;
+            height: 8px;
+            ${(prop) => {
+                if(prop.status === "urgent"){
+                    return "background: red;"
+                }else if(prop.status === "alert"){
+                    return "background: yellow;"
+                }else{
+                    return "background: green;"
+                }
+            }}
+        }
+
+        img{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
     }
 
     border-radius: 4px;
