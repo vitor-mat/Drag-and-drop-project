@@ -35,7 +35,7 @@ const dataKanban = JSON.parse(localStorage.getItem("dataKanban3354676199304804")
 export const KanbanPage = () => {
 
     let [cardListData, setCardListData] = useState(dataKanban)
-    let [inputAddValue, setInputAddValue] = useState()
+    let [inputAddValue, setInputAddValue] = useState("")
 
     async function handleOnDragEnd(result) {
 
@@ -88,10 +88,10 @@ export const KanbanPage = () => {
     const deleteItemFunction = async (id, column) => {
 
 
-        let newArray = cardListData       
+        let newArray = cardListData
 
         const newArrayItems = cardListData[column].items.filter((value, index) => {
-            if(value.id === id){
+            if (value.id === id) {
                 return false;
             }
 
@@ -100,8 +100,13 @@ export const KanbanPage = () => {
 
         newArray[column].items = newArrayItems
 
-        await setCardListData(newArray)
+        await setCardListData(cardListData = newArray)
         localStorage.setItem("dataKanban3354676199304804", JSON.stringify(cardListData))
+
+        //forcar atualizacao do itens pro excluido sumir
+        const myInputValue = inputAddValue
+        setInputAddValue(inputAddValue = " ")
+        setInputAddValue(inputAddValue = myInputValue)
     }
 
     return (
@@ -110,78 +115,80 @@ export const KanbanPage = () => {
                 <h1>Kanban Board</h1>
                 <div id="add-div">
                     <input
-                    type="text"
-                    onChange={e => inputAddHandle(e)}
-                    value={inputAddValue}
-                    onKeyPress={e => {
-                        if (e.key === "Enter") {
-                            addNewItem()
-                        }
-                    }}
-                    placeholder="Digite Aqui"
+                        type="text"
+                        onChange={e => inputAddHandle(e)}
+                        value={inputAddValue}
+                        onKeyPress={e => {
+                            if (e.key === "Enter") {
+                                addNewItem()
+                            }
+                        }}
+                        placeholder="Digite Aqui"
                     />
                     <button onClick={addNewItem}>Adicionar</button>
                 </div>
             </header>
             <main>
-                <DragDropContext onDragEnd={handleOnDragEnd} id="drag-context">
-                    {
-                        cardListData.map((data, index) => {
-                            return (
-                                <Board
-                                    title={data.title}
-                                    key={index}
-                                >
-                                    <Droppable
-                                        droppableId={data.id}
+                {
+                    <DragDropContext onDragEnd={handleOnDragEnd} id="drag-context">
+                        {
+                            cardListData.map((data, index) => {
+                                return (
+                                    <Board
+                                        title={data.title}
+                                        key={index}
                                     >
-                                        {(provided, snapshot) => {
-                                            return (
-                                                <div
-                                                    ref={provided.innerRef}
-                                                    {...provided.droppableProps}
-                                                    className="dropzone-container"
-                                                    style={{
-                                                        background: snapshot.isDraggingOver ? 'rgba(10, 255, 180, .1)' : ""
-                                                    }}
-                                                >
-                                                    {
-                                                        data.items.map((value, index) => {
-                                                            return (
-                                                                <Draggable key={`key${value.id}`} draggableId={value.id} index={index} >
-                                                                    {
-                                                                        (provided) => {
-                                                                            return (
-                                                                                <span
-                                                                                    ref={provided.innerRef}
-                                                                                    {...provided.draggableProps}
-                                                                                    {...provided.dragHandleProps}
-                                                                                >
-                                                                                    <Card
-                                                                                        title={value.name}
-                                                                                        status={value.status}
-                                                                                        deleteItemFunction={deleteItemFunction}
-                                                                                        id={value.id}
-                                                                                        column={data.id}
-                                                                                    />
-                                                                                </span>
-                                                                            )
+                                        <Droppable
+                                            droppableId={data.id}
+                                        >
+                                            {(provided, snapshot) => {
+                                                return (
+                                                    <div
+                                                        ref={provided.innerRef}
+                                                        {...provided.droppableProps}
+                                                        className="dropzone-container"
+                                                        style={{
+                                                            background: snapshot.isDraggingOver ? 'rgba(10, 255, 180, .1)' : ""
+                                                        }}
+                                                    >
+                                                        {
+                                                            data.items.map((value, index) => {
+                                                                return (
+                                                                    <Draggable key={`key${value.id}`} draggableId={value.id} index={index} >
+                                                                        {
+                                                                            (provided) => {
+                                                                                return (
+                                                                                    <span
+                                                                                        ref={provided.innerRef}
+                                                                                        {...provided.draggableProps}
+                                                                                        {...provided.dragHandleProps}
+                                                                                    >
+                                                                                        <Card
+                                                                                            title={value.name}
+                                                                                            status={value.status}
+                                                                                            deleteItemFunction={deleteItemFunction}
+                                                                                            id={value.id}
+                                                                                            column={data.id}
+                                                                                        />
+                                                                                    </span>
+                                                                                )
+                                                                            }
                                                                         }
-                                                                    }
-                                                                </Draggable>
-                                                            )
-                                                        })
-                                                    }
-                                                    {provided.placeholder}
-                                                </div>
-                                            )
-                                        }}
-                                    </Droppable>
-                                </Board>
-                            )
-                        })
-                    }
-                </DragDropContext>
+                                                                    </Draggable>
+                                                                )
+                                                            })
+                                                        }
+                                                        {provided.placeholder}
+                                                    </div>
+                                                )
+                                            }}
+                                        </Droppable>
+                                    </Board>
+                                )
+                            })
+                        }
+                    </DragDropContext>
+                }
             </main>
             <footer>
                 <span>Make by Vitor M.</span>
