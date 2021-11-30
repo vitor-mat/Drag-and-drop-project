@@ -76,18 +76,17 @@ export const Container = styled.div`
         flex: 1;
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
         gap: 50px;
         padding-top: 20px;
+        overflow: auto;
     }
 
     .dropzone-container{
-        padding: 16px;
-        min-width: 332px;
+        width: 100%;
         min-height: 200px;
         background: #141316;
 
-        transition: 400ms;
+        transition: .4s;
 
         display: flex;
         flex-direction: column;
@@ -95,8 +94,8 @@ export const Container = styled.div`
     }
 
     span{
-        widht: 250px;
-        overflow: visible;
+        widht: 100%;
+        padding: 0 10px;
     }
 
 `

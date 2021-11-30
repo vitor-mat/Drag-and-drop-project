@@ -6,8 +6,11 @@ export const Container = styled.div`
     background: ${backgroundColor};
     border: 1px solid #fb951f11;
     border-radius: 4px;
-    min-width: 300px;
-
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     #title-container{
         h3{
             font-weight: 700;

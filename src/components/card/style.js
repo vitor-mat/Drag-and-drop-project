@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
 
     box-shadow: 0 2px 2px -1px #fd951fcc;
-    widht: 250px;
+    backgorund: blue;
+    widht: 100px;
     margin: 25px 0;
     font-weight: 600;
     font-size: 18px;

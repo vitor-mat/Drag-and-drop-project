@@ -37,7 +37,7 @@ export const KanbanPage = () => {
     let [cardListData, setCardListData] = useState(dataKanban)
     let [inputAddValue, setInputAddValue] = useState()
 
-    function handleOnDragEnd(result) {
+    async function handleOnDragEnd(result) {
 
         if (!result.destination) return;
 
@@ -50,15 +50,15 @@ export const KanbanPage = () => {
 
         if (source.droppableId === destination.droppableId && source.index !== destination.index) {
             add = itemsCopy[source.droppableId].items.splice(source.index, 1)
-            itemsCopy[source.droppableId].items.splice(destination.index, 0, add[0])
+            await itemsCopy[source.droppableId].items.splice(destination.index, 0, add[0])
         }
 
         if (source.droppableId !== destination.droppableId) {
             add = itemsCopy[source.droppableId].items.splice(source.index, 1)
-            itemsCopy[destination.droppableId].items.splice(destination.index, 0, add[0])
+            await itemsCopy[destination.droppableId].items.splice(destination.index, 0, add[0])
         }
-        setCardListData(itemsCopy)
-
+        await setCardListData(itemsCopy)
+        localStorage.setItem("dataKanban3354676199304804", JSON.stringify(cardListData))
     }
 
     const addNewItem = async (e) => {
