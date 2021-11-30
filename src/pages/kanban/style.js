@@ -10,6 +10,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     background: rgba(50, 50, 50);
+    overflow-x: hidden;
 
     header{
         width: 100%;
@@ -73,34 +74,62 @@ export const Container = styled.div`
                 opacity: .5;
             }
         }
+
+        @media(max-width: 1000px){
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+
+            h1{
+                text-align: center;
+            }
+
+            #add-div{
+                padding: 0 50px;
+            }
+        }
+
+        @media(max-width: 530px){
+            h1{
+                font-size: 48px;
+            }
+
+            #add-div{
+                padding: 0 20px;
+            }
+        }
+
     }
 
     main{
         width: 100%;
         flex: 1;
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        padding-top: 20px;
-        overflow: auto;
-        margin-bottom: 30px;
-    }
 
-    .dropzone-container{
-        width: 100%;
-        min-height: 200px;
-        background: #141316;
+        background: blue;
 
-        transition: .4s;
+        display: grid;
+        grid-template-areas: "all";
+        grid-template-column: 1fr;
+        grid-template-row: 1fr;
 
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+        #test{
+            grid-area: all;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            flex: 1;
+            overflow: auto;
+            background: red;
 
-    span{
-        widht: 100%;
-        padding: 0 10px;
+            span{
+                widht: 100%;
+                padding: 0 10px;
+            }
+        }
     }
 
     footer{
