@@ -61,7 +61,7 @@ export const KanbanPage = () => {
 
     }
 
-    const addNewItem = (e) => {
+    const addNewItem = async (e) => {
 
         if (!inputAddValue) {
             alert("Error: Campo de entrada vazio!")
@@ -75,8 +75,10 @@ export const KanbanPage = () => {
             status: "eventual",
             id: ((Math.random() * 1000000).toFixed(2)).toString()
         })
-        setCardListData(cardListData = newArray)
+        await setCardListData(cardListData = newArray)
         setInputAddValue(inputAddValue = "")
+
+        localStorage.setItem("dataKanban3354676199304804", JSON.stringify(cardListData))
     }
 
     const inputAddHandle = (e) => {
