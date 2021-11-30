@@ -80,7 +80,7 @@ export const KanbanPage = () => {
             id: ((Math.random()*1000000).toFixed(2)).toString()
         })
         setCardListData(cardListData = newArray)
-        console.log(cardListData)
+        setInputAddValue(inputAddValue = "")
     }
 
     const inputAddHandle = (e) => {
@@ -92,7 +92,7 @@ export const KanbanPage = () => {
             <header>
                 <h1>Kanban Board</h1>
                 <div id="add-div">
-                    <input type="text" onChange={e => inputAddHandle(e)}/>
+                    <input type="text" onChange={e => inputAddHandle(e)} value={inputAddValue}/>
                     <button onClick={e => addNewItem(e)}>Adicionar</button>
                 </div>
             </header>
