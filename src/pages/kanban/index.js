@@ -72,6 +72,11 @@ export const KanbanPage = () => {
 
     const addNewItem = (e) => {
         
+        if(!inputAddValue){
+            alert("Error: Campo de entrada vazio!")
+            return;
+        }
+
         let newArray = cardListData
 
         newArray[0].items.push({
