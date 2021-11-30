@@ -110,18 +110,18 @@ export const Container = styled.div`
 
 
         display: grid;
-        grid-template-areas: "all";
-        grid-template-column: 1fr;
+        grid-template-areas: "nada all caquinha";
+        grid-template-column: 5px / 1fr / 5px;
         grid-template-row: 1fr;
+        justify-content: center;
 
         #test{
             grid-area: all;
             display: flex;
             gap: 20px;
             padding: 20px;
-            width: 100%;
-            flex: 1;
             overflow: auto;
+
 
             span{
                 widht: 100%;
