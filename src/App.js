@@ -1,16 +1,16 @@
 import React from 'react';
 
-import { KanbanPage } from './pages/kanban/index'
-
 import { GlobalStyle } from './style/globalStyle'
 
-const App = () => {
-  return(
+import { KanbanPage } from './pages/kanban_page/index'
+
+function App() {
+  return (
     <>
       <GlobalStyle />
       <KanbanPage />
     </>
-  )
+    );
 }
 
-export default App
+export default App;

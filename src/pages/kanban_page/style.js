@@ -1,28 +1,24 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { highlightColor, backgroundColor } from '../../style/colors'
+import { backgroundColor, highlightColor } from '../../style/colors'
 
 export const Container = styled.div`
     width: 100%;
     min-height: 100vh;
+    background: ${backgroundColor};
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background: rgba(50, 50, 50);
-    overflow-x: hidden;
 
     header{
         width: 100%;
-        height: 130px;
+        height:200px;
         display: grid;
         grid-template-areas: "title input";
-        grid-template-row: 100%;
-        grid-template-columns: 65% 35%;
+        grid-template-rows: auto;
+        grid-template-columns: 40% 60%;
         align-items: center;
-        background: ${backgroundColor};
         padding-left: 70px;
-
 
         h1{
             width: 100%;
@@ -33,10 +29,9 @@ export const Container = styled.div`
         }
 
         #add-div{
-
             grid-area: input;
-            height: 100%;
             width: 100%;
+            height: 100px;
             display: flex;
             gap: 20px;
             align-items: center;
@@ -65,9 +60,8 @@ export const Container = styled.div`
                 font-weight: 700;
                 width: 120px;
                 height: 32px;
-                font-size: 16px;
                 cursor: pointer;
-                transition: .2s linear;
+                transition: 2s linear;
             }
 
             button:active{
@@ -75,30 +69,39 @@ export const Container = styled.div`
             }
         }
 
-        @media(max-width: 1000px){
-            height: 220px;
+        @media(max-width: 900px){
+            height: 250px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 10px;
+            gap: 10px;
+            padding: 20px 0;
 
             h1{
+                width: 100%;
+                height: 130px;
                 text-align: center;
             }
 
             #add-div{
-                padding: 0 50px;
+                width: 100%;
+                padding: 0 30px;
             }
         }
 
-        @media(max-width: 530px){
+        @media(max-width: 540px){
             h1{
                 font-size: 48px;
+                height: 90px;
             }
 
-            #add-div{
-                padding: 0 20px;
+        }
+
+        @media(max-width: 360px){
+
+            height: 190px;
+
+            h1{
+                font-size: 40px;
             }
         }
 
@@ -106,42 +109,66 @@ export const Container = styled.div`
 
     main{
         width: 100%;
-        flex: 1;
-
-
+        flex: 1;        
         display: grid;
         grid-template-areas: "nada all caquinha";
         grid-template-column: 5px / 1fr / 5px;
         grid-template-row: 1fr;
         justify-content: center;
         margin-bottom: 5px;
+        background: rgb(50, 50, 50);
 
-        #test{
+        #dragdrop-container-div{
             grid-area: all;
             display: flex;
             gap: 20px;
             padding: 20px;
-            overflow: auto;
-
-
+            overflow-x: auto;
             span{
                 widht: 100%;
                 padding: 0 10px;
             }
         }
 
-        #test::-webkit-scrollbar {
+        #dragdrop-container-div::-webkit-scrollbar {
             width: 2px;
           }
           
-          #test::-webkit-scrollbar-track {
+        #dragdrop-container-div::-webkit-scrollbar-track {
             background: rgba(20, 19, 22, .4);
-          }
+        }
           
-          #test::-webkit-scrollbar-thumb {
+        #dragdrop-container-div::-webkit-scrollbar-thumb {
             background: rgba(20, 19, 22, .7);
             border-radius: 20px;
-          }
+        }
+
+        .board{
+            background: ${backgroundColor};
+            width: 350px;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+            gap: 50px;
+
+            .title-board-div{
+                width: 100%;
+                text-align: center;
+                
+                h3{
+                    color: ${highlightColor};
+                }
+            }
+
+            .dropzone-container{
+                width: 100%;
+                min-height: 250px;
+                overflow: hidden;
+            }
+        }
+        }
     }
 
     footer{
@@ -151,11 +178,9 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-
         span{
             color: ${highlightColor};
             font-size: 18px;
         }
     }
-
 `

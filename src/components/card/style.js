@@ -1,43 +1,42 @@
 import styled from 'styled-components';
 
+import { highlightColor } from '../../style/colors';
+
 export const Container = styled.div`
+    width: 100%;
+    min-height: 70px;
+    text-align: justify;
+    border-bottom: 2px solid ${highlightColor};
+    margin-bottom: 35px;
+    padding: 10px 0 20px;
+    word-break: break-word;
 
-    box-shadow: 0 2px 2px -1px #fd951fcc;
-    backgorund: blue;
-    widht: 100px;
-    margin: 25px 0;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 16px;
+    .close-icon-div{
+        width: 100%;
 
-    #status-div{
+        margin-bottom: 20px;
 
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        margin-bottom: 16px;
 
-        #status{
-            width: 30px;
+        .status{
+            width: 25px;
             height: 8px;
-            ${(prop) => {
-                if(prop.status === "urgent"){
-                    return "background: red;"
-                }else if(prop.status === "alert"){
-                    return "background: yellow;"
+            ${(props) => {
+                if(props.status === "Todo"){
+                    return "background: #F08080;"
+                }else if(props.status === "In-Progress"){
+                    return "background: lightblue;"
                 }else{
-                    return "background: green;"
+                    return "background: lightgreen;"
                 }
             }}
         }
 
-        img{
+        #close-icon-img{
             width: 20px;
             height: 20px;
             cursor: pointer;
         }
     }
-
-    border-radius: 4px;
-    
 `
