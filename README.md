@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Kanban Board
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação inteiramente funcional de kanban com React Js.
 
-## Available Scripts
+![ReactJS](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) ![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+## SUMÁRIO
 
-In the project directory, you can run:
+- Status
+- Features
+- Demonstração da Aplicação
+- Como Rodar a Aplicação
+- Pré Requisitos Para Rodar a Aplicação
+- Tecnologias utilizadas
+- Autor
 
-### `yarn start`
+## Status
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+✨Concluído ✨
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `yarn test`
+- Input Para adicionar cards ao kanbam
+- Site responsivo
+- Funcionalidade drag and drop para arrastar os cards entre os quadros
+- Armazenamento dos cardas no LocalStorage
+- Você pode remover os items do seu storage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demonstração da Aplicação
 
-### `yarn build`
+### Clone Netflix Desktop
+<img alt="kanban desktop image" src="./readme_files/kanban_desktop.png"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Clone Netflix Mobile
+![Imgur](https://i.imgur.com/dhNfNeo.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Pré Requisitos Para Rodar a Aplicação
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Você precisa simplesmente de um browser de internet (navegador).
 
-### `yarn eject`
+## Como Rodar a Aplicação
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para Ver a aplicação, abri o index html no seu navegador de internet.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tecnologias Utilizadas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [html](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [css](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [javscript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Autor
+![autor](https://lh3.googleusercontent.com/fife/ABSRlIoIDUqYI1PxkILsNUhmBPTC-2V6e_WPMymE9HZWzDfT5XnhTV_V2c8_fD78AW4keYIP6UnA7JIVm92Lt11V60KDeehLvlkZsRVqmX9Z8AyVoxg8OZDCZbdolGebbmSp8eJjp9qm9lOA8c9gjHkFSAa_NKBFXiDYESOzMIwdLw4MvslJl1hoEeov-x8fO3ILVafU3nsB-ojFhpBd_9h1v8QDFCIoWbT9LPQH__In2m88VidR0xlUyE3sGtwWj38HckcwXn7_mUjF1L606illM-A93gn_PTvoHokrcBPnfoLVP1Le-Te4UU23pRgJMB03KGMSBcsJTOFrQx4qWwhHUdeB0DeJnMmgi6XIiGXAgClJKYBLtwWgYLM3n1CN8DurfxB3rnLTKHkbgxA6UlsD-GCP0upXfEWltohbfz-8CQiY3KW6Pv88nZ56EXLd2VVm68yIeoTE7iW3XmCq36bDJK9-nasjcACIKwZhDHHmnev8DcloUzuQ9T8G8XMhHk7-_1iHAuzHJLUppgYpMr82TuTjsa5uarNcxy0EqLliYwexRXXaTGSFtewhySH-u93NXx038oRli6K8tHIKqGh46rFMBnPh80PvS88ucD4JZkmizB3Paov4AtNZoheVgaiPDBE06CJDwjWegm3H-qU9rQHsKkXWpiw5r9A4OMKIWykW8PQC2_J8lypGgW9d2IkHrm7CT2D6nZcALQcOpg-BU0Yxq3zC2xz4pA=w1920-h912-ft)
 
-## Learn More
+Feito por Vitor Mateus
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/vitor_dev_/) [![linkeding](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vitor-mateus-2a42461a2/)
