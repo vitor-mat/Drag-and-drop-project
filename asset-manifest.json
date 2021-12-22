@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/Drag-and-drop-project/static/js/main.30120bff.chunk.js",
-    "main.js.map": "/Drag-and-drop-project/static/js/main.30120bff.chunk.js.map",
-    "runtime-main.js": "/Drag-and-drop-project/static/js/runtime-main.11c9d52c.js",
-    "runtime-main.js.map": "/Drag-and-drop-project/static/js/runtime-main.11c9d52c.js.map",
-    "static/js/2.bb12f5a7.chunk.js": "/Drag-and-drop-project/static/js/2.bb12f5a7.chunk.js",
-    "static/js/2.bb12f5a7.chunk.js.map": "/Drag-and-drop-project/static/js/2.bb12f5a7.chunk.js.map",
-    "index.html": "/Drag-and-drop-project/index.html",
-    "static/js/2.bb12f5a7.chunk.js.LICENSE.txt": "/Drag-and-drop-project/static/js/2.bb12f5a7.chunk.js.LICENSE.txt",
-    "static/media/close_icon_x.b1caa3ff.svg": "/Drag-and-drop-project/static/media/close_icon_x.b1caa3ff.svg"
+    "main.js": "/Kanban-Board/static/js/main.30120bff.chunk.js",
+    "main.js.map": "/Kanban-Board/static/js/main.30120bff.chunk.js.map",
+    "runtime-main.js": "/Kanban-Board/static/js/runtime-main.76bea766.js",
+    "runtime-main.js.map": "/Kanban-Board/static/js/runtime-main.76bea766.js.map",
+    "static/js/2.1fcda906.chunk.js": "/Kanban-Board/static/js/2.1fcda906.chunk.js",
+    "static/js/2.1fcda906.chunk.js.map": "/Kanban-Board/static/js/2.1fcda906.chunk.js.map",
+    "index.html": "/Kanban-Board/index.html",
+    "static/js/2.1fcda906.chunk.js.LICENSE.txt": "/Kanban-Board/static/js/2.1fcda906.chunk.js.LICENSE.txt",
+    "static/media/close_icon_x.b1caa3ff.svg": "/Kanban-Board/static/media/close_icon_x.b1caa3ff.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.11c9d52c.js",
-    "static/js/2.bb12f5a7.chunk.js",
+    "static/js/runtime-main.76bea766.js",
+    "static/js/2.1fcda906.chunk.js",
     "static/js/main.30120bff.chunk.js"
   ]
 }
