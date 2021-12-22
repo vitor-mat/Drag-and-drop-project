@@ -3,7 +3,7 @@
 Uma aplicação inteiramente funcional de kanban com React Js.
 
 ![ReactJS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-![https://img.shields.io/badge/-%E2%98%82%EF%B8%8F%20React%20Beautiful%20dnd-blue](https://github.com/atlassian/react-beautiful-dnd)
+![React_Beautiful_dnd](https://img.shields.io/badge/-%E2%98%82%EF%B8%8F%20React%20Beautiful%20dnd-blue)
 ## SUMÁRIO
 
 - Status
