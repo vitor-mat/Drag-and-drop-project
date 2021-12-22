@@ -51,7 +51,7 @@ Pelo promt de comando entre na pasta do projeto, em seguida rode o comando npm i
 - [styled-components](https://styled-components.com/docs)
 
 ## Autor
-<img alt="author photo" src="./readme_files/vitor.jpg" width="400">
+<img alt="author photo" src="./readme_files/vitor.jpg" width="250">
 
 Feito por Vitor Mateus
 
