@@ -21,7 +21,7 @@ Uma aplicação inteiramente funcional de kanban com React Js.
 
 ## Deploy
 
-- ![https://vitor-mat.github.io/Kanban-Board/](https://vitor-mat.github.io/Kanban-Board/)
+- [https://vitor-mat.github.io/Kanban-Board/](https://vitor-mat.github.io/Kanban-Board/)
 
 ## Features
 
