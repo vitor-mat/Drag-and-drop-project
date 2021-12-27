@@ -7,6 +7,7 @@ Uma aplicação inteiramente funcional de kanban com React Js.
 ## SUMÁRIO
 
 - Status
+- Deploy
 - Features
 - Demonstração da Aplicação
 - Como Rodar a Aplicação
@@ -17,6 +18,10 @@ Uma aplicação inteiramente funcional de kanban com React Js.
 ## Status
 
 ✨Concluído ✨
+
+## Deploy
+
+- ![https://vitor-mat.github.io/Kanban-Board/](https://vitor-mat.github.io/Kanban-Board/)
 
 ## Features
 
